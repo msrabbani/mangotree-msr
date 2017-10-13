@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mangotree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "msrabbani",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^4.5.1",
+    "node-cron": "^1.2.1"
+  }
+}
