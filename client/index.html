@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>mangotree-msr</title>
+    <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+      </head>
+  <body>
+    <div id="app">
+
+    <h1>Manggotree</h1>
+    <h2>{{msg}}</h2>
+    <div class="btn-vue">
+      <button type="button" name="button">mango run</button>
+      <h1>{{mangoTree.tinggi}}</h1>
+      <p>{{mangoTree.umur}}</p>
+      <p>{{mangoTree.maxUmur}}</p>
+      <p>{{mangoTree.panen}}</p>
+      <p>{{mangoTree.statusKesehatan}}</p>
+      <p>{{mangoTree.tinggi}}</p>
+    </div>
+
+  </div>
+
+    <script>
+      var config = {
+        apiKey: "AIzaSyBv5iI_hyeHIZAfQ5awl6XYXS9aJHos--Q",
+        authDomain: "intro-firebase-89a6f.firebaseapp.com",
+        databaseURL: "https://intro-firebase-89a6f.firebaseio.com",
+        projectId: "intro-firebase-89a6f",
+        storageBucket: "intro-firebase-89a6f.appspot.com",
+        messagingSenderId: "869973274847"
+      }
+
+      firebase.initializeApp(config)
+
+      var db = firebase.database()
+
+      var app = new Vue ({
+        el: '#app',
+        data: {
+          msg: 'Pohon mangga'
+        },
+        firebase: function() {
+          return {
+            mangoTree: {
+              source: db.ref('tree'),
+              asObject: true
+            }
+          }
+        },
+        created () {
+        console.log(this.mangoTree.statusKesehatan)
+        }
+      })
+    </script>
+  </body>
+</html>
